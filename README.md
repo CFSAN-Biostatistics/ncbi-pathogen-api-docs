@@ -1,6 +1,9 @@
 # ncbi-pathogen-api-docs
 Repository for [samizdat](http://www.catb.org/jargon/html/S/samizdat.html) about NCBI's undocumented Pathogen API.
 
+*note* For large batch jobs, please download from the ftp site and run operations locally.
+ftp://ftp.ncbi.nlm.nih.gov/pathogen/
+
 ## API Endpoint URL
 
 
