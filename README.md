@@ -21,3 +21,30 @@ Retrieve neighboring nodes in the tree within `distance` from `accessions`.
 
 JSON Schema to follow if we can figure out what it is.
 
+# Using APIs
+
+```python
+
+import requests # seriously, use requests
+
+accessions = [
+    'PDT000608728.1',
+    'SAMN13035591',
+    'PDT000608727.1',
+    'FSIS21821478',
+    'qqq'
+]
+
+response = requests.get(
+    "https://www.ncbi.nlm.nih.gov/Structure/pathogen/tree/tree_srv.cgi",
+    params=dict(
+        action='getneighbors',
+        distance=4,
+        accessions=",".join(accessions)
+    )
+)
+
+records = response.json()
+
+```
+
