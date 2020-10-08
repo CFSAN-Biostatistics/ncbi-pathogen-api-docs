@@ -1,0 +1,22 @@
+name: Shell Scripts Unit Testing
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: apt-get install
+      run:  |
+        sudo apt-get install -y bats jq
+        which bats
+        which jq
+    - name: test env
+      run:  |
+        echo $PATH
+        which bats jq
+    - name: unit tests
+      run:  for unittest in test/*.sh; do bats $unittest; if [ $? -gt 0 ]; then exit 1; fi; done;
+
